@@ -16,6 +16,7 @@ L1	uninstall	com.xiaomi.mipicks	# GetApps, Xiaomi's store; installs and pushes g
 L1	uninstall	com.miui.android.fashiongallery	# Wallpaper carousel: ads on the lock screen
 L1	uninstall	com.mi.globalminusscreen	# App Vault: the feed left of the home screen
 L1	uninstall	com.miui.cotaservice	# Carrier OTA: delivers carrier/partner apps
+L1	uninstall	com.mi.appfinder	# Xiaomi search behind the home search bar: shows "recommended" apps/ads (disable is refused on HyperOS 3, remove works)
 L1	uninstall	com.miui.hybrid	# Quick apps (ads, MIUI)
 L1	uninstall	com.miui.hybrid.accessory	# Quick apps add-on
 L1	uninstall	com.facebook.appmanager	# hidden Facebook installer
@@ -58,7 +59,6 @@ L3	uninstall	com.miui.misightservice	# diagnostics collection
 L3	uninstall	com.xiaomi.aiasst.vision	# AI subtitles/"vision" (ask if the person is hard of hearing)
 L3	uninstall	com.microsoftsdk.crossdeviceservicebroker	# link to Windows ("Phone Link")
 L3	uninstall	com.android.egg	# Android easter egg
-L3	disable	com.mi.appfinder	# app drawer search with "recommended" apps (disable, don't remove)
 
 # --- DO NOT TOUCH on Xiaomi, although often suggested (see protected.txt) ---
 # com.miui.securitycenter, com.lbe.security.miui, com.miui.guardprovider: bootloop / no installer
