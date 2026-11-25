@@ -103,6 +103,10 @@ Finish
 Pitfalls seen on real phones
 - Xiaomi Settings "Update" tab is `com.xiaomi.discover` (built-in app updates), not the firmware.
   Removing it (level 3) kills the tab; firmware still updates via the HyperOS logo in About phone.
+- After removing `com.mi.appfinder`, swipe-down on the Xiaomi home screen says "App not found": set
+  `settings put system com.miui.home.preferences.launcher_pulldown_gesture no_action` (works without
+  Security settings). The notification shade still opens from the top edge.
+- Without AdGuard DNS, Xiaomi search showed ads again; that's why appfinder is L1.
 - Xiaomi Simple mode can switch developer mode off (`development_settings_enabled` = 0).
 - `screencap` may return an empty frame: ask what the person sees or check
   `dumpsys activity activities | grep topResumedActivity`.
