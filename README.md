@@ -58,10 +58,14 @@ curl -fsSL https://raw.githubusercontent.com/posp3h/cleanyourphone/main/start.sh
 
 ### Claude Code: вручную или в приложении Claude
 
-Установить один раз:
+Установить один раз. Это **две отдельные команды**: отправьте первую, дождитесь ответа, потом
+вторую. Обе сразу в одном сообщении не сработают.
 
 ```
 /plugin marketplace add posp3h/cleanyourphone
+```
+
+```
 /plugin install cleanyourphone@cleanyourphone
 ```
 

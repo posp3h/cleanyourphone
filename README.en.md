@@ -59,10 +59,14 @@ phone: the plugin gets updated on the way.
 
 ### Claude Code: by hand or in the Claude app
 
-Install once:
+Install once. These are **two separate commands**: send the first, wait for the reply, then send the
+second. Both in one message won't work.
 
 ```
 /plugin marketplace add posp3h/cleanyourphone
+```
+
+```
 /plugin install cleanyourphone@cleanyourphone
 ```
 
