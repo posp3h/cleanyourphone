@@ -20,20 +20,11 @@ almost any Android phone: Samsung, realme, OPPO, Motorola, Pixel and others.
 
 ## How it goes
 
-The assistant walks you through 10 steps and waits for your answer after each one:
+Connect (cable or Wi-Fi) → back up → debloat → ads in system apps → optional DNS and 60 Hz. The
+assistant installs adb itself, works on the real phone and checks every action.
 
-1. What you need (a computer, a cable or Wi-Fi, the adb tool)
-2. Turn on developer mode, with instructions for your brand
-3. Connect the phone by cable or by Wi-Fi pairing code
-4. Back up and look around: what the manufacturer installed and what you installed
-5. Which of the usual "bloat" you actually use
-6. **How deep to go:** ads only / standard / maximum / your own list
-7. Shows the list in plain words and waits for your "yes"
-8. Removes it and checks that calls, SMS and the camera still work
-9. Opens the right settings screens on the phone and tells you which switch to turn off
-10. Optional: ad-blocking DNS, 60 Hz and shorter animations for battery; how to undo everything
-
-It takes 20–40 minutes, with 4–6 questions to answer.
+At most three questions: how deep to go (ads only / standard / maximum / pick from the list), which
+of the found apps you use, and whether you want the extras. It takes 20–30 minutes.
 
 ## How to run it
 
@@ -89,9 +80,8 @@ Clone the repo, open your assistant (Codex, Gemini CLI, Cursor and so on) in its
 I want to remove preinstalled bloatware and ads from my Android phone over ADB.
 Phone: <brand and model, e.g. Redmi Note 14>. For: <myself / my mom / a child>.
 
-Open skills/debloat-phone/SKILL.md in this folder and guide me through it strictly step by step,
-from "Step 1 of 10" to "Step 10 of 10". Talk to me in English. I may never have used ADB, so explain
-every action in plain words and wait for my answer after each step.
+Open skills/debloat-phone/SKILL.md in this folder and follow it on the real phone. Talk to me in
+English and keep it short.
 
 Rules you must not break:
 - remove nothing until I have approved the list;
@@ -126,7 +116,7 @@ Or everything at once: `scripts/restore.ps1 -Serial <phone> -Log backups/.../uni
 
 | Path | What it is |
 |---|---|
-| `skills/debloat-phone/SKILL.md` | The 10-step script the assistant follows |
+| `skills/debloat-phone/SKILL.md` | The procedure the assistant follows |
 | `skills/debloat-phone/lists/` | Package lists by level: Xiaomi, Google, partner apps, protected |
 | `skills/debloat-phone/scripts/` | `apply` runs the plan, `restore` undoes it, `origin` tells who installed each app |
 | `examples/` | Real phones that were cleaned: what was removed and what came up |

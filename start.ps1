@@ -24,4 +24,4 @@ Set-Location $work
 Write-Host "Work folder (backups and logs): $work" -ForegroundColor Cyan
 
 $lang = (Get-Culture).NativeName
-claude "Run the cleanyourphone:debloat-phone skill and guide me through it step by step. My system language is ${lang}: talk to me in that language unless I write in another one."
+claude "Run the cleanyourphone:debloat-phone skill and follow it on my real phone. Keep it short. My system language is ${lang}: talk to me in that language unless I write in another one."

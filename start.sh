@@ -26,4 +26,4 @@ echo "Work folder (backups and logs): $WORK"
 
 LANG_NAME=${LC_ALL:-${LC_MESSAGES:-${LANG:-en_US}}}
 # stdin is the curl pipe here, so give Claude Code the real terminal.
-exec claude "Run the cleanyourphone:debloat-phone skill and guide me through it step by step. My system locale is $LANG_NAME: talk to me in that language unless I write in another one." </dev/tty
+exec claude "Run the cleanyourphone:debloat-phone skill and follow it on my real phone. Keep it short. My system locale is $LANG_NAME: talk to me in that language unless I write in another one." </dev/tty
