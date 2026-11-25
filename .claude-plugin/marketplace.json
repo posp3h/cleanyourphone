@@ -1,11 +1,11 @@
 {
   "name": "cleanyourphone",
-  "owner": { "name": "cleanyourphone" },
+  "owner": { "name": "posp3h" },
   "plugins": [
     {
       "name": "cleanyourphone",
       "source": "./",
-      "description": "Пошаговая очистка Android-телефона от мусора и рекламы через ADB"
+      "description": "Step-by-step removal of preinstalled bloatware and ads from Android phones over ADB"
     }
   ]
 }

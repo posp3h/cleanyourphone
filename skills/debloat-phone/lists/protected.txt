@@ -1,8 +1,8 @@
-# НИКОГДА НЕ ТРОГАТЬ (ни удалять, ни отключать).
-# Скрипт apply отказывается работать, если план содержит что-то отсюда.
-# Строка = имя пакета или префикс с * на конце.
+# NEVER TOUCH (neither remove nor disable).
+# The apply script refuses to run if the plan contains anything from here.
+# A line is a package name, or a prefix ending in *.
 
-# --- Ядро Android ---
+# --- Android core ---
 android
 com.android.systemui
 com.android.settings
@@ -56,7 +56,7 @@ com.android.imsserviceentitlement
 com.android.camera
 com.android.camera2
 
-# --- Google: без них не работают Play, вход, пуши, WebView ---
+# --- Google: Play, sign-in, push and WebView stop working without these ---
 com.google.android.gms
 com.google.android.gsf
 com.android.vending
@@ -66,7 +66,7 @@ com.google.android.setupwizard
 com.google.android.inputmethod.latin
 com.google.android.tts
 
-# --- Xiaomi / MIUI / HyperOS: удаление = бутлуп или потеря функций ---
+# --- Xiaomi / MIUI / HyperOS: removal = bootloop or lost functions ---
 com.miui.securitycenter
 com.miui.securitycore
 com.miui.securityadd
@@ -99,7 +99,7 @@ com.xiaomi.trustservice
 com.tencent.soter.soterserver
 org.ifaa.aidl.manager
 
-# --- Чипсеты: модем, связь, камера ---
+# --- Chipsets: modem, telephony, camera ---
 com.mediatek
 com.mediatek.ims
 com.mediatek.telephony

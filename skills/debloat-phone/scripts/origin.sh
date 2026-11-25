@@ -1,5 +1,5 @@
 #!/bin/sh
-# Делит сторонние приложения на «поставил телефон» и «поставил пользователь». См. origin.ps1 — те же правила.
+# Splits non-system apps into "shipped with the phone" and "installed by the user". Same rules as origin.ps1.
 #   ./origin.sh <serial>   -> TSV: origin  package  installer  firstInstallTime  codePath
 set -eu
 S=$1

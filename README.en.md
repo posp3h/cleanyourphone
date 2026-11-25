@@ -8,8 +8,7 @@ AI assistant. No root, no flashing, everything is reversible.
 Built first for **Xiaomi / Redmi / POCO (HyperOS, MIUI)**, where the ads are worst, but it works on
 almost any Android phone: Samsung, realme, OPPO, Motorola, Pixel and others.
 
-> The step-by-step script and package notes are written in Russian, but the assistant talks to you
-> in your own language. Package names and commands are the same everywhere.
+> The assistant talks to you in your own language, whatever language you write in.
 
 ## What you get
 
@@ -67,7 +66,7 @@ I want to remove preinstalled bloatware and ads from my Android phone over ADB.
 Phone: <brand and model, e.g. Redmi Note 14>. For: <myself / my mom / a child>.
 
 Open skills/debloat-phone/SKILL.md in this folder and guide me through it strictly step by step,
-from "Шаг 1 из 10" to "Шаг 10 из 10". Talk to me in English. I may never have used ADB, so explain
+from "Step 1 of 10" to "Step 10 of 10". Talk to me in English. I may never have used ADB, so explain
 every action in plain words and wait for my answer after each step.
 
 Rules you must not break:

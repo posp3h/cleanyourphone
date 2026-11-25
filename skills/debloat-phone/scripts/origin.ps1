@@ -1,22 +1,22 @@
 ﻿<#
-Делит сторонние (не системные) приложения на «поставил телефон» и «поставил пользователь».
+Splits non-system apps into "shipped with the phone" and "installed by the user".
   .\origin.ps1 -Serial 192.168.1.50:37123 [-Out backups\...\origin.tsv]
 
-Признаки:
-  - installer (кто поставил): com.android.vending = Play Маркет; пусто/android/com.xiaomi.mipicks/
-    com.miui.cotaservice/com.xiaomi.discover/com.facebook.appmanager = прошивка или автоустановка;
-    com.google.android.packageinstaller / com.miui.packageinstaller = файл APK, установленный руками.
-  - codePath в /product, /system, /vendor, /preload = лежит в прошивке.
-  - firstInstallTime в первые 2 часа после самой ранней установки = ставилось при первой настройке
-    (сюда же попадают приложения, которые Play сам докачал при настройке — PAI/«рекомендуемые приложения»).
-Итог в колонке origin: preinstalled / setup-autoinstall / user / sideload / unknown.
-Это ПОДСКАЗКА для человека, а не приговор: спорные — спросить.
+Signals:
+  - installer (who installed it): com.android.vending = Play Store; empty/android/com.xiaomi.mipicks/
+    com.miui.cotaservice/com.xiaomi.discover/com.facebook.appmanager = firmware or auto-install;
+    com.google.android.packageinstaller / com.miui.packageinstaller = an APK file installed by hand.
+  - codePath under /product, /system, /vendor, /preload = shipped in the firmware.
+  - firstInstallTime within 2 hours of the earliest install = installed during first setup
+    (this also catches apps Play pulled in during setup: PAI / "recommended apps").
+Result in the origin column: preinstalled / setup-autoinstall / user / sideload / unknown.
+This is a HINT for the person, not a verdict: ask about anything debatable.
 #>
 param([Parameter(Mandatory)][string]$Serial, [string]$Out)
 $pkgs = (& adb -s $Serial shell pm list packages -3 -i) | ForEach-Object {
   if ($_ -match '^package:(\S+)\s+installer=(\S*)') { [pscustomobject]@{ Pkg = $Matches[1]; Installer = $Matches[2] } }
 }
-if (-not $pkgs) { Write-Error "Телефон $Serial не отвечает"; exit 3 }
+if (-not $pkgs) { Write-Error "Phone $Serial is not responding"; exit 3 }
 $rows = foreach ($p in $pkgs) {
   $d = (& adb -s $Serial shell dumpsys package $p.Pkg) -join "`n"
   $first = if ($d -match 'firstInstallTime=([0-9-]+ [0-9:]+)') { [datetime]$Matches[1] } else { $null }
@@ -39,4 +39,4 @@ $res = foreach ($r in $rows) {
 }
 $res = $res | Sort-Object origin, Pkg
 $res | Format-Table origin, Pkg, Installer, FirstInstall -AutoSize | Out-String -Width 200
-if ($Out) { $res | Export-Csv $Out -Delimiter "`t" -NoTypeInformation -Encoding UTF8; "Сохранено: $Out" }
+if ($Out) { $res | Export-Csv $Out -Delimiter "`t" -NoTypeInformation -Encoding UTF8; "Saved: $Out" }

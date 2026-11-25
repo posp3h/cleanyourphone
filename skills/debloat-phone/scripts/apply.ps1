@@ -1,13 +1,13 @@
 ﻿<#
-Применяет утверждённый план очистки к телефону.
+Applies an approved debloat plan to the phone.
   .\apply.ps1 -Serial 192.168.1.50:37123 -Plan backups\redmi-2026-11-24\plan.txt [-DisableOnly] [-DryRun]
 
-План: одна строка — один пакет. Поддерживаются оба формата:
+Plan: one package per line. Both formats work:
   com.example.pkg                  -> uninstall
   com.example.pkg   disable        -> disable
-  L2<TAB>uninstall<TAB>com.example.pkg<TAB># комментарий   (строки из lists/*.txt)
-'#' — комментарий. -DisableOnly (уровень 1): всё только отключается.
-Пишет журнал uninstall-log.tsv рядом с планом. Отказывается работать, если в плане есть пакет из lists/protected.txt.
+  L2<TAB>uninstall<TAB>com.example.pkg<TAB># comment   (lines from lists/*.txt)
+'#' starts a comment. -DisableOnly (level 1): everything is only disabled.
+Writes uninstall-log.tsv next to the plan. Refuses to run if the plan contains a package from lists/protected.txt.
 #>
 param(
   [Parameter(Mandatory)] [string]$Serial,
@@ -37,10 +37,10 @@ $items = foreach ($line in Get-Content $Plan -Encoding UTF8) {
 }
 
 $bad = $items | Where-Object { Test-Protected $_.Pkg }
-if ($bad) { Write-Error ("В плане защищённые пакеты, ничего не сделано: " + (($bad.Pkg) -join ', ')); exit 2 }
+if ($bad) { Write-Error ("The plan contains protected packages, nothing was done: " + (($bad.Pkg) -join ', ')); exit 2 }
 
 $installed = (& adb -s $Serial shell pm list packages) -replace '^package:','' | ForEach-Object { $_.Trim() }
-if (-not $installed) { Write-Error "Телефон $Serial не отвечает (adb devices?)"; exit 3 }
+if (-not $installed) { Write-Error "Phone $Serial is not responding (check adb devices)"; exit 3 }
 
 $log = Join-Path (Split-Path $Plan -Parent) 'uninstall-log.tsv'
 if (-not (Test-Path $log)) { "package`trequested`tresult`tmessage" | Out-File $log -Encoding utf8 }
@@ -64,5 +64,5 @@ foreach ($it in $items) {
   "{0,-12} {1}" -f $result, $p
 }
 ""
-"Удалено: $($n.uninstalled)  Отключено: $($n.disabled)  Ошибки: $($n.failed)  Не установлено на этом телефоне: $($n.absent)"
-if (-not $DryRun) { "Журнал: $log" }
+"Removed: $($n.uninstalled)  Disabled: $($n.disabled)  Failed: $($n.failed)  Not on this phone: $($n.absent)"
+if (-not $DryRun) { "Log: $log" }

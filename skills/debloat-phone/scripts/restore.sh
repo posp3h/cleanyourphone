@@ -1,5 +1,5 @@
 #!/bin/sh
-# Возвращает всё, что сделал apply.sh, по его журналу.
+# Undoes everything apply.sh did, using its log.
 #   ./restore.sh <serial> <uninstall-log.tsv> [com.one.package]
 set -eu
 SERIAL=$1; LOG=$2; ONLY=${3:-}

@@ -1,6 +1,6 @@
 {
   "name": "cleanyourphone",
-  "description": "Пошаговая очистка Android-телефона (Xiaomi/HyperOS и другие) от предустановленного мусора и рекламы через ADB",
-  "version": "0.1.0",
+  "description": "Step-by-step removal of preinstalled bloatware and ads from Android phones (Xiaomi/HyperOS first) over ADB",
+  "version": "0.2.0",
   "license": "MIT"
 }

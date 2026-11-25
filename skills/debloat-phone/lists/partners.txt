@@ -1,11 +1,12 @@
-# Партнёрские приложения и игры, которые производители ставят за деньги. Уровень L2.
-# Имена пакетов игр меняются от партии к партии — главное правило:
-#   любой ПРЕДУСТАНОВЛЕННЫЙ сторонний пакет (pm list packages -3), которого нет в protected
-#   и который человек не назвал в исключениях, — кандидат L2. Покажи каждый по названию.
+# Partner apps and games that manufacturers are paid to preinstall. Level L2.
+# Game package names change from batch to batch, so the main rule is:
+#   any PREINSTALLED non-system package (pm list packages -3) that is not in protected.txt,
+#   was not named as an exception and was not installed by the user (origin script) is an L2
+#   candidate. Show each one by name.
 
-# --- Соцсети и сервисы (спроси в шаге 5!) ---
+# --- Social networks and services (ask in step 5!) ---
 L2	uninstall	com.zhiliaoapp.musically	# TikTok
-L2	uninstall	com.ss.android.ugc.trill	# TikTok (другой регион)
+L2	uninstall	com.ss.android.ugc.trill	# TikTok (other regions)
 L2	uninstall	com.facebook.katana	# Facebook
 L2	uninstall	com.facebook.orca	# Messenger
 L2	uninstall	com.instagram.android	# Instagram
@@ -16,12 +17,12 @@ L2	uninstall	com.booking	# Booking
 L2	uninstall	com.linkedin.android	# LinkedIn
 L2	uninstall	com.opera.browser	# Opera
 L2	uninstall	com.opera.max.global	# Opera Max
-L2	uninstall	com.orange.update	# служба оператора Orange
+L2	uninstall	com.orange.update	# Orange carrier service
 L2	uninstall	com.agoda.mobile.consumer	# Agoda
 L2	uninstall	com.einnovation.temu	# Temu
 L2	uninstall	com.alibaba.aliexpresshd	# AliExpress
 
-# --- Игры, встреченные на Xiaomi 2025–2026 ---
+# --- Games seen on Xiaomi phones in 2025–2026 ---
 L2	uninstall	com.oakever.tiletrip	# Tile Trip
 L2	uninstall	com.mintgames.triplecrush.tile.fun	# Triple Crush
 L2	uninstall	com.mintgames.wordtrip	# Word Trip

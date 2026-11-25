@@ -1,7 +1,7 @@
 ﻿<#
-Возвращает всё, что сделал apply.ps1, по его журналу.
+Undoes everything apply.ps1 did, using its log.
   .\restore.ps1 -Serial 192.168.1.50:37123 -Log backups\redmi-2026-11-24\uninstall-log.tsv [-Package com.example.pkg]
--Package — вернуть только один пакет.
+-Package restores a single package only.
 #>
 param(
   [Parameter(Mandatory)] [string]$Serial,

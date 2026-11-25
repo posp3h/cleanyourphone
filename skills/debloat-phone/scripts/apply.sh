@@ -1,8 +1,8 @@
 #!/bin/sh
-# Применяет утверждённый план очистки к телефону.
+# Applies an approved debloat plan to the phone.
 #   ./apply.sh <serial> <plan.txt> [--disable-only] [--dry-run]
-# План: "com.pkg", "com.pkg disable" или строки из lists/*.txt ("L2<TAB>uninstall<TAB>com.pkg<TAB># ...").
-# Журнал uninstall-log.tsv пишется рядом с планом. Защищённые пакеты (lists/protected.txt) — отказ.
+# Plan: "com.pkg", "com.pkg disable" or lines from lists/*.txt ("L2<TAB>uninstall<TAB>com.pkg<TAB># ...").
+# Writes uninstall-log.tsv next to the plan. Refuses to run with protected packages (lists/protected.txt).
 set -eu
 SERIAL=$1; PLAN=$2; shift 2
 DISABLE_ONLY=0; DRY=0
@@ -25,10 +25,10 @@ ITEMS=$(sed 's/#.*//' "$PLAN" | awk 'NF { if ($1 ~ /^L[1-4]$/) print $3, $2; els
 
 BAD=""
 for p in $(echo "$ITEMS" | awk '{print $1}'); do [ -n "$(is_protected "$p")" ] && BAD="$BAD $p"; done
-[ -n "$BAD" ] && { echo "В плане защищённые пакеты, ничего не сделано:$BAD" >&2; exit 2; }
+[ -n "$BAD" ] && { echo "The plan contains protected packages, nothing was done:$BAD" >&2; exit 2; }
 
 INSTALLED=$(adb -s "$SERIAL" shell pm list packages | sed 's/^package://' | tr -d '\r')
-[ -z "$INSTALLED" ] && { echo "Телефон $SERIAL не отвечает" >&2; exit 3; }
+[ -z "$INSTALLED" ] && { echo "Phone $SERIAL is not responding" >&2; exit 3; }
 [ -f "$LOG" ] || printf 'package\trequested\tresult\tmessage\n' > "$LOG"
 
 U=0; D=0; F=0; A=0
@@ -49,4 +49,4 @@ echo "$ITEMS" | while read -r p act; do
   printf '%s\t%s\t%s\t%s\n' "$p" "$act" "$res" "$msg" >> "$LOG"
   printf '%-12s %s\n' "$res" "$p"
 done
-[ "$DRY" = 1 ] || echo "Журнал: $LOG"
+[ "$DRY" = 1 ] || echo "Log: $LOG"
