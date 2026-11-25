@@ -37,7 +37,27 @@ It takes 20–40 minutes, with 4–6 questions to answer.
 
 ## How to run it
 
-### Claude Code (one command)
+### Claude Code: one command
+
+Paste into a terminal. It installs or updates the plugin, creates a folder for backups
+(`Documents\cleanyourphone` or `~/cleanyourphone`) and starts the guided cleanup right away.
+
+Windows (PowerShell):
+
+```powershell
+irm https://raw.githubusercontent.com/posp3h/cleanyourphone/main/start.ps1 | iex
+```
+
+macOS / Linux:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/posp3h/cleanyourphone/main/start.sh | sh
+```
+
+Claude Code must be installed (if it isn't, the command tells you how). Run it again for the next
+phone: the plugin gets updated on the way.
+
+### Claude Code: by hand or in the Claude app
 
 Install once:
 
@@ -107,6 +127,7 @@ Or everything at once: `scripts/restore.ps1 -Serial <phone> -Log backups/.../uni
 | `skills/debloat-phone/scripts/` | `apply` runs the plan, `restore` undoes it, `origin` tells who installed each app |
 | `examples/` | Real phones that were cleaned: what was removed and what came up |
 | `PROMPT.md` | The prompt for other AI assistants (Russian) |
+| `start.ps1`, `start.sh` | One-command start in Claude Code |
 
 To add your phone to `examples/`, follow [redmi-17-hyperos3.md](examples/redmi-17-hyperos3.md), without
 IP addresses, serial numbers or account names.

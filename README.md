@@ -36,7 +36,27 @@
 
 ## Как запустить
 
-### Claude Code (одна команда)
+### Claude Code: одна команда
+
+Вставьте в терминал. Команда сама поставит или обновит плагин, создаст папку для бэкапов
+(`Документы\cleanyourphone` или `~/cleanyourphone`) и сразу начнёт пошаговую очистку.
+
+Windows (PowerShell):
+
+```powershell
+irm https://raw.githubusercontent.com/posp3h/cleanyourphone/main/start.ps1 | iex
+```
+
+macOS / Linux:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/posp3h/cleanyourphone/main/start.sh | sh
+```
+
+Нужен установленный Claude Code (если его нет, команда подскажет, как поставить). Её же можно
+запускать повторно для следующего телефона: плагин при этом обновится.
+
+### Claude Code: вручную или в приложении Claude
 
 Установить один раз:
 
@@ -88,6 +108,7 @@ adb shell pm enable <имя.пакета>                      # отключё�
 | `skills/debloat-phone/scripts/` | `apply` — применить план, `restore` — вернуть, `origin` — кто поставил приложение |
 | `examples/` | Реальные очищенные телефоны: что удалили, что всплыло |
 | `PROMPT.md` | Текст для других ИИ-помощников |
+| `start.ps1`, `start.sh` | Запуск в Claude Code одной командой |
 
 Добавить свой телефон в `examples/` — по образцу [redmi-17-hyperos3.md](examples/redmi-17-hyperos3.md),
 без IP-адресов, серийных номеров и имён аккаунтов.
