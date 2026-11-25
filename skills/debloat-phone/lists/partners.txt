@@ -1,0 +1,36 @@
+# Партнёрские приложения и игры, которые производители ставят за деньги. Уровень L2.
+# Имена пакетов игр меняются от партии к партии — главное правило:
+#   любой ПРЕДУСТАНОВЛЕННЫЙ сторонний пакет (pm list packages -3), которого нет в protected
+#   и который человек не назвал в исключениях, — кандидат L2. Покажи каждый по названию.
+
+# --- Соцсети и сервисы (спроси в шаге 5!) ---
+L2	uninstall	com.zhiliaoapp.musically	# TikTok
+L2	uninstall	com.ss.android.ugc.trill	# TikTok (другой регион)
+L2	uninstall	com.facebook.katana	# Facebook
+L2	uninstall	com.facebook.orca	# Messenger
+L2	uninstall	com.instagram.android	# Instagram
+L2	uninstall	com.spotify.music	# Spotify
+L2	uninstall	com.netflix.mediaclient	# Netflix
+L2	uninstall	com.amazon.mShop.android.shopping	# Amazon
+L2	uninstall	com.booking	# Booking
+L2	uninstall	com.linkedin.android	# LinkedIn
+L2	uninstall	com.opera.browser	# Opera
+L2	uninstall	com.opera.max.global	# Opera Max
+L2	uninstall	com.orange.update	# служба оператора Orange
+L2	uninstall	com.agoda.mobile.consumer	# Agoda
+L2	uninstall	com.einnovation.temu	# Temu
+L2	uninstall	com.alibaba.aliexpresshd	# AliExpress
+
+# --- Игры, встреченные на Xiaomi 2025–2026 ---
+L2	uninstall	com.oakever.tiletrip	# Tile Trip
+L2	uninstall	com.mintgames.triplecrush.tile.fun	# Triple Crush
+L2	uninstall	com.mintgames.wordtrip	# Word Trip
+L2	uninstall	com.ordinaryjoy.woodblast	# Wood Blast
+L2	uninstall	com.block.puzzle.game.hippo.mi	# Block Puzzle
+L2	uninstall	com.block.juggle	# Block Blast
+L2	uninstall	com.jewelsblast.ivygames.Adventure.free	# Jewels Blast
+L2	uninstall	com.logame.eliminateintruder3d	# Eliminate Intruder 3D
+L2	uninstall	com.sukhavati.gotoplaying.bubble.BubbleShooter.mint	# Bubble Shooter
+L2	uninstall	com.vitastudio.mahjong	# Mahjong
+L2	uninstall	com.nf.snake	# Snake
+L2	uninstall	com.king.candycrushsaga	# Candy Crush

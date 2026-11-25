@@ -1,0 +1,30 @@
+# Приложения Google, без которых телефон работает. Формат как в xiaomi.txt.
+# Перед удалением проверь роли (шаг 4): если Google-звонилка/сообщения/контакты — основные, НЕ удалять.
+# НЕ удалять никогда: gms, gsf, vending (Play), webview, клавиатуру Gboard, setupwizard — см. protected.txt.
+
+L1	disable	com.google.android.adservices.api	# Privacy Sandbox — рекламные «темы» (только отключать; на некоторых прошивках отказ — пропусти)
+
+L3	uninstall	com.google.android.apps.bard	# Gemini
+L3	uninstall	com.google.android.apps.docs	# Google Диск (спроси)
+L3	uninstall	com.google.android.apps.subscriptions.red	# Google One
+L3	uninstall	com.google.android.apps.tachyon	# Google Meet / Duo
+L3	uninstall	com.google.android.apps.youtube.music	# YouTube Music (спроси)
+L3	uninstall	com.google.android.videos	# Google TV (фильмы)
+L3	uninstall	com.google.android.apps.magazines	# Google Новости
+L3	uninstall	com.google.android.projection.gearhead	# Android Auto (спроси, есть ли машина с ним)
+L3	uninstall	com.google.ambient.streaming	# трансляция приложений на другие устройства
+L3	uninstall	com.google.android.apps.podcasts	# Google Подкасты
+L3	uninstall	com.google.android.keep	# Google Keep (спроси)
+L3	uninstall	com.google.android.apps.fitness	# Google Fit (спроси)
+L3	uninstall	com.google.android.apps.wellbeing	# Цифровое благополучие (спроси — родительский контроль/таймеры)
+L3	uninstall	com.google.android.apps.youtube.kids	# YouTube Kids
+L3	uninstall	com.google.android.apps.nbu.files	# Files by Google (если есть проводник производителя)
+
+# Обычно ОСТАВЛЯЕМ (спроси, если уровень 3/4):
+# com.google.android.youtube — YouTube
+# com.google.android.apps.maps — Карты
+# com.google.android.gm — Gmail
+# com.google.android.apps.photos — Google Фото (резервная копия фото)
+# com.google.android.calendar — Календарь
+# com.google.android.googlequicksearchbox — поиск/Ассистент
+# com.google.android.dialer / contacts / apps.messaging — если это основные звонилка/контакты/SMS

@@ -1,0 +1,68 @@
+# Xiaomi / Redmi / POCO — HyperOS 1–3 и MIUI 12–14 (Global/EEA)
+# Проверено целиком: REDMI 17 (2606FRN72Y), HyperOS 3.0.308, Android 16, ноябрь 2026.
+#
+# Формат: УРОВЕНЬ <TAB> ДЕЙСТВИЕ <TAB> ПАКЕТ <TAB> # что это
+#   L1 = только реклама, L2 = стандарт, L3 = максимум.
+#   ДЕЙСТВИЕ: uninstall = pm uninstall -k --user 0; disable = pm disable-user --user 0.
+#   На уровне 1 ВСЁ выполняется как disable (ничего не удаляем).
+#   Пакета может не быть на конкретной модели — это нормально, просто пропускаем.
+
+# --- L1: реклама, аналитика, автоустановка ---
+L1	uninstall	com.miui.msa.global	# MSA — рекламный сервис, баннеры во всех приложениях Xiaomi
+L1	uninstall	com.miui.msa	# MSA (китайская/старая версия)
+L1	uninstall	com.miui.analytics	# аналитика Xiaomi
+L1	uninstall	android.autoinstalls.config.Xiaomi.model	# список приложений, которые докачиваются после настройки
+L1	uninstall	com.xiaomi.mipicks	# GetApps — магазин Xiaomi, сам ставит и предлагает игры
+L1	uninstall	com.miui.android.fashiongallery	# Карусель обоев — реклама на экране блокировки
+L1	uninstall	com.mi.globalminusscreen	# App Vault — лента слева от рабочего стола
+L1	uninstall	com.miui.cotaservice	# Carrier OTA — довозит приложения операторов/партнёров
+L1	uninstall	com.miui.hybrid	# Быстрые приложения (реклама, MIUI)
+L1	uninstall	com.miui.hybrid.accessory	# дополнение к быстрым приложениям
+L1	uninstall	com.facebook.appmanager	# скрытый установщик Facebook
+L1	uninstall	com.facebook.services	# скрытые сервисы Facebook
+L1	uninstall	com.facebook.system	# скрытый системный модуль Facebook
+
+# --- L2: дубли с рекламой, магазины, игры производителя ---
+L2	uninstall	com.miui.cleaner	# «Очистка» — с рекламой, пользы нет
+L2	uninstall	com.mi.globalbrowser	# Mi Браузер — с рекламой (Chrome остаётся)
+L2	uninstall	com.android.browser	# Mi Браузер (старое имя)
+L2	uninstall	com.miui.player	# Mi Музыка — с рекламой
+L2	uninstall	com.miui.videoplayer	# Mi Видео — с рекламой (видео из галереи открывается и так)
+L2	uninstall	com.xiaomi.glgm	# Game Center Xiaomi
+L2	uninstall	com.mi.global.shop	# Mi Store — магазин техники
+L2	uninstall	com.mi.global.bbs	# форум Xiaomi
+L2	uninstall	com.miui.yellowpage	# «Жёлтые страницы»/определитель Xiaomi
+L2	uninstall	com.xiaomi.smarthome	# Mi Home — умный дом (НЕ нужен для Mi Band — для него Mi Fitness)
+L2	uninstall	cn.wps.xiaomi.abroad.lite	# WPS Office lite — с рекламой
+L2	uninstall	com.miui.thirdappassistant	# помощник сторонних приложений
+L2	uninstall	com.xiaomi.barrage	# «бегущие комментарии» поверх игр/видео
+L2	uninstall	com.miui.bugreport	# отчёты об ошибках
+L2	uninstall	com.miui.miservice	# «Службы и обратная связь»
+L2	uninstall	com.mi.android.globalpersonalassistant	# старая лента-ассистент (MIUI)
+
+# --- L3: работает и без них ---
+L3	uninstall	com.xiaomi.discover	# обновление встроенных приложений Xiaomi. ВНИМАНИЕ: вкладка «Обновление» в Настройках перестанет открываться; прошивка обновляется как раньше
+L3	uninstall	com.miui.huanji	# Mi Mover — перенос данных со старого телефона
+L3	uninstall	com.xiaomi.midrop	# ShareMe (часто защищён → будет отключён)
+L3	uninstall	com.xiaomi.scanner	# Сканер (QR читает и камера; часто защищён → отключится)
+L3	uninstall	com.miui.compass	# Компас (часто защищён)
+L3	uninstall	com.miui.screenrecorder	# Запись экрана (часто защищён)
+L3	uninstall	com.miui.fm	# FM-радио (спроси — пожилые слушают!)
+L3	uninstall	com.miui.notes	# Заметки (спроси)
+L3	uninstall	com.xiaomi.calendar	# Календарь Xiaomi (если есть Google Календарь; спроси)
+L3	uninstall	com.miui.weather2	# Погода (СПРОСИ: на ней виджет «часы+погода» и погода на экране блокировки)
+L3	uninstall	com.mi.health	# Mi Fitness (СПРОСИ: нужен для Mi Band)
+L3	uninstall	com.miui.virtualsim	# Mi Roaming / виртуальная SIM
+L3	uninstall	com.miui.vsimcore	# ядро виртуальной SIM
+L3	uninstall	com.miui.misightservice	# сбор диагностики
+L3	uninstall	com.xiaomi.aiasst.vision	# AI-субтитры/«зрение» (спроси, если человек плохо слышит)
+L3	uninstall	com.microsoftsdk.crossdeviceservicebroker	# связь с Windows («Связь с телефоном»)
+L3	uninstall	com.android.egg	# пасхалка Android
+L3	disable	com.mi.appfinder	# поиск в меню приложений с «рекомендуемыми» (отключаем, не удаляем)
+
+# --- НЕ ТРОГАТЬ на Xiaomi, хотя часто советуют (см. protected.txt) ---
+# com.miui.securitycenter, com.lbe.security.miui, com.miui.guardprovider — бутлуп/нет установщика
+# com.xiaomi.xmsf — пропадут пуш-уведомления
+# com.android.updater — обновления прошивки
+# com.android.thememanager — без него ломается смена обоев (рекламу выключаем в его настройках)
+# com.miui.mediaeditor — редактор в Галерее

@@ -1,0 +1,11 @@
+{
+  "name": "cleanyourphone",
+  "owner": { "name": "cleanyourphone" },
+  "plugins": [
+    {
+      "name": "cleanyourphone",
+      "source": "./",
+      "description": "Пошаговая очистка Android-телефона от мусора и рекламы через ADB"
+    }
+  ]
+}
