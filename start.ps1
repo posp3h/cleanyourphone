@@ -1,4 +1,4 @@
-﻿# Clean Your Phone: one-command start for Claude Code (Windows).
+# Clean Your Phone: one-command start for Claude Code (Windows).
 #   irm https://raw.githubusercontent.com/posp3h/cleanyourphone/main/start.ps1 | iex
 # Installs or updates the plugin, makes a work folder for backups and starts the guided session.
 $ErrorActionPreference = 'Stop'
